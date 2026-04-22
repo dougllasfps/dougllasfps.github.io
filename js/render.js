@@ -1,10 +1,14 @@
 ﻿import { TOOLS } from './tools-data.js';
-import { buildPageLink, buildToolLink, escapeHtml } from './utils.js';
+import { buildPageLink, buildToolLink, escapeHtml, formatToolTypeLabel } from './utils.js';
 
 export function toolCard(tool) {
   return `
     <article class="tool-card" aria-label="${escapeHtml(tool.name)}">
-      <span class="tag">${escapeHtml(tool.type)} • ${escapeHtml(tool.category)}</span>
+      <div class="tool-meta">
+        <span class="tag tag-type">${escapeHtml(formatToolTypeLabel(tool.type))}</span>
+        <span class="tool-meta-sep" aria-hidden="true">•</span>
+        <span class="tool-category">${escapeHtml(tool.category)}</span>
+      </div>
       <h3>${escapeHtml(tool.name)}</h3>
       <p>${escapeHtml(tool.description)}</p>
       <div class="actions">

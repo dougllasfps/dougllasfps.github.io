@@ -2,7 +2,7 @@
 import { renderToolGrid, getByType, getPopularTools, categoryCards, getRelated } from './render.js';
 import { setupSearchInput, searchTools } from './search.js';
 import { TOOL_DEFINITIONS } from './tools.js';
-import { buildPageLink, buildToolLink, bySlug, escapeHtml, rootPath } from './utils.js';
+import { buildPageLink, buildToolLink, bySlug, escapeHtml, formatToolTypeLabel, rootPath } from './utils.js';
 
 const body = document.body;
 const page = body.dataset.page || 'home';
@@ -265,7 +265,7 @@ function initToolDetail() {
 
   target.innerHTML = `
     <article class="form-card">
-      <span class="tag">${escapeHtml(tool.type)} • ${escapeHtml(tool.category)}</span>
+      <span class="tag">${escapeHtml(formatToolTypeLabel(tool.type))} • ${escapeHtml(tool.category)}</span>
       <h1>${escapeHtml(tool.name)}</h1>
       <p>${escapeHtml(tool.description)}</p>
       <form id="toolForm" novalidate>
@@ -296,7 +296,8 @@ function initToolDetail() {
           <button class="btn-secondary" type="reset">Limpar</button>
         </div>
       </form>
-      <div class="result-box" id="resultBox" aria-live="polite">
+      <div class="result-box is-idle" id="resultBox" aria-live="polite">
+        <p class="result-kicker">Resultado</p>
         <p class="result-value">Preencha os campos e clique em calcular.</p>
       </div>
       <div class="content-text">
@@ -307,9 +308,9 @@ function initToolDetail() {
       </div>
     </article>
 
-    <aside class="panel">
+    <aside class="panel related-panel">
       <h2>Ferramentas relacionadas</h2>
-      <div class="grid tools">
+      <div class="grid tools related-tools-list">
         ${related.length ? related.map((item) => toolCardInline(item)).join('') : '<p>Sem relacionadas no momento.</p>'}
       </div>
       <div class="ad-slot" style="margin-top:1rem;">Área de anúncio interno (300x250)</div>
@@ -320,6 +321,15 @@ function initToolDetail() {
   const resultBox = document.getElementById('resultBox');
   if (!form || !resultBox) return;
 
+  function setResultBox({ state = 'idle', value = '', detail = '' }) {
+    resultBox.className = `result-box is-${state}`;
+    resultBox.innerHTML = `
+      <p class="result-kicker">Resultado</p>
+      <p class="result-value">${escapeHtml(value)}</p>
+      ${detail ? `<p class="result-detail">${escapeHtml(detail)}</p>` : ''}
+    `;
+  }
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(form);
@@ -327,29 +337,36 @@ function initToolDetail() {
     const outcome = definition.calculate(values);
 
     if (!outcome || outcome.error) {
-      resultBox.innerHTML = `<p class="result-value">${escapeHtml((outcome && outcome.error) || 'Dados inválidos. Revise os campos.')}</p>`;
+      setResultBox({
+        state: 'error',
+        value: (outcome && outcome.error) || 'Dados inválidos. Revise os campos.',
+      });
       return;
     }
 
-    resultBox.innerHTML = `
-      <p class="result-value">${escapeHtml(outcome.value)}</p>
-      <p>${escapeHtml(outcome.detail || '')}</p>
-    `;
+    setResultBox({
+      state: 'success',
+      value: outcome.value,
+      detail: outcome.detail || '',
+    });
   });
 
   form.addEventListener('reset', () => {
     requestAnimationFrame(() => {
-      resultBox.innerHTML = '<p class="result-value">Campos limpos. Pronto para um novo cálculo.</p>';
+      setResultBox({
+        state: 'idle',
+        value: 'Campos limpos. Pronto para um novo cálculo.',
+      });
     });
   });
 }
 
 function toolCardInline(tool) {
   return `
-    <article class="tool-card">
+    <article class="tool-card related-tool-card">
       <h3>${escapeHtml(tool.name)}</h3>
       <p>${escapeHtml(tool.description)}</p>
-      <a class="btn-link" href="${buildPageLink('ferramenta.html')}?slug=${encodeURIComponent(tool.slug)}">Abrir</a>
+      <a class="btn-link related-tool-link" href="${buildPageLink('ferramenta.html')}?slug=${encodeURIComponent(tool.slug)}">Abrir</a>
     </article>
   `;
 }

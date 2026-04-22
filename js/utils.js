@@ -10,6 +10,14 @@ export function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
+export function formatToolTypeLabel(type) {
+  const value = String(type || '').trim().toLowerCase();
+  if (value === 'calculadora') return 'Calculadora';
+  if (value === 'conversor') return 'Conversor';
+  if (!value) return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 export function toNumber(value) {
   if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
   if (value == null) return NaN;

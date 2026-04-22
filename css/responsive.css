@@ -32,12 +32,26 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .grid.tools.related-tools-list {
+    grid-template-columns: 1fr;
+  }
+
   .footer-grid {
     grid-template-columns: 1.2fr 0.8fr 0.8fr;
   }
 
   .inline-filters {
     grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+  .inline-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .inline-filters .search-wrap {
+    grid-column: 1 / -1;
   }
 }
 
@@ -48,6 +62,10 @@
 
   .grid.tools {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid.tools.related-tools-list {
+    grid-template-columns: 1fr;
   }
 
   .grid.tools.compact {
