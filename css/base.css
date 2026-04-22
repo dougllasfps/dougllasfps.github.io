@@ -1,0 +1,72 @@
+﻿:root {
+  --bg: #f4f7f5;
+  --surface: #ffffff;
+  --surface-soft: #edf4ef;
+  --text: #163024;
+  --text-soft: #4b6357;
+  --primary: #0f5a38;
+  --primary-2: #1e7c52;
+  --border: #d4e2d8;
+  --shadow: 0 8px 24px rgba(15, 90, 56, 0.08);
+  --radius: 16px;
+  --container: 1160px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", "Inter", sans-serif;
+  background: radial-gradient(circle at top right, #e6f1ea 0%, var(--bg) 42%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.08rem, 2.3vw, 1.3rem);
+}
+
+p {
+  color: var(--text-soft);
+}
+
+.container {
+  width: min(var(--container), 94vw);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 2.7rem 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+:focus-visible {
+  outline: 3px solid #71b896;
+  outline-offset: 2px;
+}

@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todas as Ferramentas | Ferramentas Online</title>
+    <meta name="description" content="Busque e filtre todas as calculadoras e conversores do portal." />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+  <body data-page="tools" data-breadcrumb="Todas as ferramentas">
+    <header id="site-header"></header>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <nav id="breadcrumb"></nav>
+          <h1>Todas as ferramentas</h1>
+          <p>Use a busca e filtros para encontrar rapidamente a ferramenta ideal.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container panel">
+          <div class="inline-filters">
+            <div class="search-wrap" style="margin-top: 0">
+              <label class="visually-hidden" for="allSearch">Buscar ferramenta</label>
+              <input id="allSearch" class="search-input" type="search" placeholder="Buscar por nome, categoria ou palavra-chave" autocomplete="off" />
+              <div id="allSearchSuggestions" class="search-suggestions" hidden></div>
+            </div>
+            <div>
+              <label for="filterType">Tipo</label>
+              <select id="filterType" class="select" aria-label="Filtrar por tipo">
+                <option value="">Todos</option>
+                <option value="calculadora">Calculadoras</option>
+                <option value="conversor">Conversores</option>
+              </select>
+            </div>
+            <div>
+              <label for="filterCategory">Categoria</label>
+              <select id="filterCategory" class="select" aria-label="Filtrar por categoria">
+                <option value="">Todas</option>
+              </select>
+            </div>
+          </div>
+          <p id="resultsCount" class="stat" style="margin-top: 0.8rem"></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div id="allToolsGrid" class="grid tools"></div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <button id="scrollTopBtn" aria-label="Voltar ao topo"></button>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

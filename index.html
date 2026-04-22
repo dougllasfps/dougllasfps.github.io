@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ferramentas Online | Calculadoras e Conversores</title>
+    <meta
+      name="description"
+      content="Calculadoras e conversores online rápidos e fáceis de usar para finanças, medidas, datas, saúde e tarefas do dia a dia."
+    />
+    <meta name="theme-color" content="#0f5a38" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body data-page="home">
+    <header id="site-header"></header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-layout">
+          <article class="hero-card">
+            <span class="tag">Portal de Calculadoras e Conversores</span>
+            <h1>Calculadoras e conversores online, rápidos e fáceis de usar</h1>
+            <p>
+              Encontre ferramentas úteis para cálculos do dia a dia, finanças, medidas, datas, saúde e muito mais.
+            </p>
+
+            <div class="search-wrap">
+              <label class="visually-hidden" for="homeSearch">Buscar ferramenta</label>
+              <input
+                id="homeSearch"
+                class="search-input"
+                type="search"
+                placeholder="Buscar: porcentagem, juros, imc, km para milha..."
+                autocomplete="off"
+                aria-label="Buscar ferramenta"
+              />
+              <div id="homeSearchSuggestions" class="search-suggestions" hidden></div>
+            </div>
+
+            <div id="quickLinks" class="quick-links" aria-label="Atalhos rápidos"></div>
+          </article>
+
+          <aside class="panel">
+            <h2>Por que usar este portal?</h2>
+            <ul class="list-check">
+              <li>Rápido e gratuito</li>
+              <li>Layout responsivo e acessível</li>
+              <li>Ferramentas organizadas por categoria</li>
+              <li>Busca em tempo real</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container ad-slot">Área para anúncio responsivo (topo da home)</div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Ferramentas mais usadas</h2>
+          <div id="popularTools" class="grid tools"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Categorias de calculadoras</h2>
+          <div id="calculatorCategories" class="grid tools"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container ad-slot">Área para anúncio entre seções</div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Categorias de conversores</h2>
+          <div id="converterCategories" class="grid tools"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Calculadoras em destaque</h2>
+          <div id="calculatorHighlights" class="grid tools"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Conversores em destaque</h2>
+          <div id="converterHighlights" class="grid tools"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid tools">
+          <article class="panel">
+            <h2>Como funciona</h2>
+            <p>Escolha a ferramenta, informe os dados e veja o resultado instantaneamente.</p>
+          </article>
+          <article class="panel">
+            <h2>Qualidade e usabilidade</h2>
+            <p>Interface limpa, foco em leitura rápida, poucos cliques e navegação intuitiva.</p>
+          </article>
+          <article class="panel">
+            <h2>Expansão futura</h2>
+            <p>Estrutura pronta para incluir novas ferramentas sem retrabalho.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Perguntas frequentes</h2>
+          <div class="grid tools">
+            <article class="faq-item">
+              <h3>Preciso pagar para usar?</h3>
+              <p>Não. Todas as ferramentas desta versão são gratuitas.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Funciona no celular?</h3>
+              <p>Sim, o portal foi projetado em abordagem mobile first.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Posso usar sem internet?</h3>
+              <p>Sim, o núcleo funciona localmente sem dependências externas.</p>
+            </article>
+          </div>
+          <p style="margin-top: 1rem">
+            <a class="btn" href="./pages/ferramentas.html">Explorar todas as ferramentas</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+    <button id="scrollTopBtn" aria-label="Voltar ao topo"></button>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

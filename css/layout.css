@@ -1,0 +1,145 @@
+﻿.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  background: rgba(244, 247, 245, 0.93);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  min-width: 0;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+}
+
+.brand-text {
+  display: grid;
+  line-height: 1.1;
+}
+
+.brand-text strong {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-text small {
+  font-size: 0.74rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+}
+
+.main-nav {
+  position: fixed;
+  inset: 76px 0 auto 0;
+  transform: translateY(-120%);
+  transition: transform 0.25s ease;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.main-nav.open {
+  transform: translateY(0);
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.2rem;
+}
+
+.hero {
+  padding: 4rem 0 2.3rem;
+}
+
+.hero-layout {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.page-hero {
+  padding: 2.6rem 0 1.4rem;
+}
+
+.page-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.tools {
+  grid-template-columns: 1fr;
+}
+
+.ad-slot {
+  border: 1px dashed #9eb9ab;
+  background: #f0f6f2;
+  border-radius: 14px;
+  min-height: 84px;
+  display: grid;
+  place-items: center;
+  font-size: 0.92rem;
+  color: #496556;
+  text-align: center;
+  padding: 1rem;
+}
+
+.breadcrumb {
+  font-size: 0.92rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-soft);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.footer {
+  background: #11271e;
+  color: #deebe2;
+  margin-top: 2.5rem;
+  padding: 2.1rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer a {
+  color: #ebf5ef;
+}
+
+.footer p {
+  color: #bcd5c8;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+}
